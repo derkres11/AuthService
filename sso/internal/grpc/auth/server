@@ -1,4 +1,37 @@
 package AuthService
 
+import (
+	ssov1 "sso/internal/proto/ssov1"
+)
+
 type serverAPI struct {
+	ssov1.UnimplementedSSOServer
 }
+
+
+func RegisterServerAPI(gRpc *grpc.Server){
+	ssov1.RegisterAuthServer(gRpc, &serverAPI{})
+}
+
+func (s *serverAPI) Login(
+	ctx context.Context,
+	req *ssov1.LoginRequest
+	) (*ssov1.LoginResponse, error) {
+		panic("implement me")
+	}
+
+
+func (s *serverAPI) Register(
+	ctx context.Context,
+	req *ssov1.RegisterRequest
+	) (*ssov1.RegisterResponse, error) {
+		panic("implement me")
+	}
+
+
+func(s *serverAPI) IsAdmin(
+	ctx context.Context,
+	req *ssov1.IsAdminRequest
+	) (*ssov1.IsAdminResponse, error) {
+		panic("implement me")
+	}
