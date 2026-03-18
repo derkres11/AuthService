@@ -1,0 +1,4 @@
+package AuthService
+
+type serverAPI struct {
+}
